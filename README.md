@@ -9,8 +9,10 @@
 > **Application Web Interactive :** [🔗 Tester FraudShield AI ici](https://fraudshield-thierry.streamlit.app/)
 >
 > 💡 **Besoin de données pour tester ?** 
-> [📥 Cliquez ici pour télécharger un fichier de test prêt à l'emploi (`sample_transactions.csv`)](https://github.com/thierrymaesen/FraudShield-XAI/raw/main/sample_transactions.csv)
-> et uploadez-le directement dans l'application pour voir la détection de fraude en action !
+> 1. Cliquez sur ce lien : [📄 sample_transactions.csv](https://github.com/thierrymaesen/FraudShield-XAI/blob/main/sample_transactions.csv)
+> 2. Sur la page qui s'ouvre, cliquez sur le petit bouton **Download** (l'icône avec une flèche vers le bas ⬇️) en haut à droite du tableau de données.
+> 3. Uploadez ce fichier directement dans l'application pour voir la détection en action !
+
 
 
 
