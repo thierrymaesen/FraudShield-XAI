@@ -54,8 +54,8 @@ L'architecture du projet est divisée en trois piliers principaux :
 
 ## 📊 Format des Données (Input)
 
-Pour des raisons de confidentialité bancaire, le modèle a été entraîné sur des données européennes dont la majorité des variables
-ont été transformées par Analyse en Composantes Principales (PCA). 
+Pour des raisons de confidentialité bancaire, le modèle a été entraîné sur des données européennes dont la majorité
+des variables ont été transformées par Analyse en Composantes Principales (PCA). 
 
 Pour que l'application fonctionne, le fichier CSV uploadé doit respecter **strictement** cette structure (30 ou 31 colonnes) :
 
