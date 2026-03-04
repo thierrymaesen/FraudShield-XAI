@@ -10,8 +10,10 @@
 
 ## 📖 Vue d'ensemble du Projet
 
-La fraude à la carte bancaire coûte des milliards d'euros chaque année à l'industrie financière. L'enjeu n'est pas seulement financier, mais concerne aussi la confiance des clients. 
-**FraudShield AI** est une solution complète de bout en bout (End-to-End) qui utilise le Machine Learning pour analyser les transactions financières et détecter les anomalies
+La fraude à la carte bancaire coûte des milliards d'euros chaque année à l'industrie financière. L'enjeu n'est pas seulement financier,
+mais concerne aussi la confiance des clients. 
+**FraudShield AI** est une solution complète de bout en bout (End-to-End) qui utilise le Machine Learning pour analyser
+les transactions financières et détecter les anomalies
 avec une haute précision, tout en minimisant les "faux positifs" qui bloquent inutilement les cartes de clients légitimes.
 
 ## 🎯 Enjeux Business et Valeur Ajoutée
