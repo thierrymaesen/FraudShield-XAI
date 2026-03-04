@@ -11,7 +11,8 @@
 ## 📖 Vue d'ensemble du Projet
 
 La fraude à la carte bancaire coûte des milliards d'euros chaque année à l'industrie financière. L'enjeu n'est pas seulement financier, mais concerne aussi la confiance des clients. 
-**FraudShield AI** est une solution complète de bout en bout (End-to-End) qui utilise le Machine Learning pour analyser les transactions financières et détecter les anomalies avec une haute précision, tout en minimisant les "faux positifs" qui bloquent inutilement les cartes de clients légitimes.
+**FraudShield AI** est une solution complète de bout en bout (End-to-End) qui utilise le Machine Learning pour analyser les transactions financières et détecter les anomalies
+avec une haute précision, tout en minimisant les "faux positifs" qui bloquent inutilement les cartes de clients légitimes.
 
 ## 🎯 Enjeux Business et Valeur Ajoutée
 
@@ -50,6 +51,24 @@ L'architecture du projet est divisée en trois piliers principaux :
  ┣ 📜 requirements.txt        # Dépendances Python
  ┣ 📜 .gitignore              # Fichiers ignorés par Git
  ┗ 📜 README.md               # Documentation du projet
+
+## 📊 Format des Données (Input)
+
+Pour des raisons de confidentialité bancaire, le modèle a été entraîné sur des données européennes dont la majorité des variables
+ont été transformées par Analyse en Composantes Principales (PCA). 
+
+Pour que l'application fonctionne, le fichier CSV uploadé doit respecter **strictement** cette structure (30 ou 31 colonnes) :
+
+| Nom de la Colonne | Type de donnée | Description |
+| :--- | :--- | :--- |
+| `Time` | Numérique | Secondes écoulées entre cette transaction et la première du dataset. |
+| `V1` à `V28` | Numérique (Float) | Variables anonymisées issues de la transformation PCA. |
+| `Amount` | Numérique (Float) | Montant de la transaction. |
+| `Class` *(Optionnel)* | Binaire (0 ou 1) | La cible (0 = Normal, 1 = Fraude). Si présente, l'application l'ignorera pour l'analyse. |
+
+*Note : Les colonnes `Time` et `Amount` seront automatiquement normalisées en arrière-plan par l'application
+via le `scaler.pkl` avant d'être soumises au modèle.*
+
 
 🚀 Comment exécuter le projet localement ?
 Si vous souhaitez faire tourner cette application sur votre propre machine :
