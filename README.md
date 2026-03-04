@@ -33,10 +33,10 @@ L'architecture du projet est divisée en trois piliers principaux :
    - Préservation des variables anonymisées issues de l'Analyse en Composantes Principales (PCA).
 
 2. **Modélisation Machine Learning**
-   - Utilisation de l'algorithme **XGBoost (Extreme Gradient Boosting)**, réputé pour ses performances sur les données tabulaires
-     fortement déséquilibrées.
-   - Utilisation de la probabilité prédictive (`predict_proba`) plutôt qu'une classification binaire stricte
-     pour permettre une flexibilité sur le seuil d'alerte.
+   - Utilisation de l'algorithme **XGBoost (Extreme Gradient Boosting)**, réputé pour ses performances sur les données
+     tabulaires fortement déséquilibrées.
+   - Utilisation de la probabilité prédictive (`predict_proba`) plutôt qu'une classification
+     binaire stricte pour permettre une flexibilité sur le seuil d'alerte.
 
 3. **Déploiement Cloud (MLOps)**
    - Sérialisation des modèles entraînés via `joblib`.
