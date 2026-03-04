@@ -29,7 +29,10 @@ if uploaded_file is not None:
             if 'Time' in X_new.columns and 'Amount' in X_new.columns:
                 X_new[['Time', 'Amount']] = scaler.transform(X_new[['Time', 'Amount']])
             
-            predictions = xgb_model.predict(X_new)
+            # predictions = xgb_model.predict(X_new)
+            probabilites = xgb_model.predict_proba(X_new)[:, 1] # Récupère le % de certitude de fraude
+            predictions = (probabilites > 0.99).astype(int)    # Seuil ultra-strict à 99%
+
             nb_fraudes = sum(predictions == 1)
             
             st.subheader("🚨 Résultats")
@@ -39,3 +42,4 @@ if uploaded_file is not None:
                 st.success("✅ Aucune fraude détectée.")
 else:
     st.info("👈 Uploadez un fichier CSV pour démarrer.")
+
