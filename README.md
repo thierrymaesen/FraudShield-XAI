@@ -7,6 +7,11 @@
 ![Status](https://img.shields.io/badge/Status-Deployed-success.svg)
 
 > **Application Web Interactive :** [🔗 Tester FraudShield AI ici](https://fraudshield-thierry.streamlit.app/)
+>
+> > 💡 **Besoin de données pour tester ?** 
+> [📥 Téléchargez ce fichier de test prêt à l'emploi (`sample_transactions.csv`)](https://raw.githubusercontent.com/thierrymaesen/FraudShield-XAI/main/sample_transactions.csv)
+> et uploadez-le directement dans l'application pour voir la détection de fraude en action !
+
 
 ## 📖 Vue d'ensemble du Projet
 
