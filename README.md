@@ -64,7 +64,8 @@ Pour que l'application fonctionne, le fichier CSV uploadé doit respecter **stri
 | `Time` | Numérique | Secondes écoulées entre cette transaction et la première du dataset. |
 | `V1` à `V28` | Numérique (Float) | Variables anonymisées issues de la transformation PCA. |
 | `Amount` | Numérique (Float) | Montant de la transaction. |
-| `Class` *(Optionnel)* | Binaire (0 ou 1) | La cible (0 = Normal, 1 = Fraude). Si présente, l'application l'ignorera pour l'analyse. |
+| `Class` *(Optionnel)* | Binaire (0 ou 1) | La cible (0 = Normal, 1 = Fraude). Si présente, l'application
+l'ignorera pour l'analyse. |
 
 *Note : Les colonnes `Time` et `Amount` seront automatiquement normalisées en arrière-plan par l'application
 via le `scaler.pkl` avant d'être soumises au modèle.*
