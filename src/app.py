@@ -74,4 +74,3 @@ if uploaded_file is not None:
                 st.success("✅ Aucune fraude détectée sur ces transactions.")
 else:
     st.info("👈 Uploadez le fichier sample_transactions.csv pour démarrer.")
-
