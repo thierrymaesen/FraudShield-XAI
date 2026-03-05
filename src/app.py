@@ -78,6 +78,14 @@ if uploaded_file is not None:
 else:
     st.info("👈 Uploadez un fichier CSV pour démarrer.")
 
+# --- FOOTER ---
+st.sidebar.markdown("---")
+st.sidebar.markdown("👨‍💻 **Créé par Thierry Maesen - 2026**")
+st.sidebar.markdown("[🔗 Mon Profil GitHub](https://github.com/thierrymaesen)")
+st.sidebar.markdown("[🔗 Mon Profil LinkedIn](https://www.linkedin.com/in/thierrymaesen)") 
+
+
+
 
 
 
