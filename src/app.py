@@ -68,9 +68,19 @@ if uploaded_file is not None:
                                                      feature_names=ligne_fraude.columns), show=False)
                 
                 st.pyplot(fig)
-                st.info("💡 **Comment lire ce graphique ?** Les barres rouges montrent les variables qui ont poussé le modèle à crier à la fraude (ex: montant trop élevé, variable V atypique). Les barres bleues montrent ce qui le rassurait.")
+                                st.markdown("""
+                **💡 Comment lire ce graphique (Waterfall SHAP) ?**
+                - **$E[f(x)]$ (en bas)** : Le risque de base avant analyse.
+                - **$f(x)$ (en haut)** : Le score de risque final calculé pour cette transaction.
+                - 🔴 **Barres Rouges** : Les variables qui **augmentent** la suspicion de fraude (ex: montant inhabituel, lieu atypique). Plus la barre est longue, plus la variable a alerté l'IA.
+                - 🔵 **Barres Bleues** : Les variables qui **rassurent** l'IA et diminuent le score de risque.
+                
+                *En entreprise, ce graphique permet aux investigateurs de comprendre en un coup d'œil pourquoi la machine a bloqué la carte, évitant ainsi le problème de la "boîte noire".*
+                """)
+
                 
             else:
                 st.success("✅ Aucune fraude détectée sur ces transactions.")
 else:
     st.info("👈 Uploadez le fichier sample_transactions.csv pour démarrer.")
+
