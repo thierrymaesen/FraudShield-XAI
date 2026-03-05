@@ -29,13 +29,11 @@ if uploaded_file is not None:
     
     if st.button("Lancer l'analyse 🚀"):
         with st.spinner('Analyse et génération des explications en cours...'):
-            # Préparation des données
             X_new = df_new.drop('Class', axis=1) if 'Class' in df_new.columns else df_new.copy()
             X_scaled = X_new.copy()
             if 'Time' in X_scaled.columns and 'Amount' in X_scaled.columns:
                 X_scaled[['Time', 'Amount']] = scaler.transform(X_scaled[['Time', 'Amount']])
             
-            # Prédictions (Seuil strict à 99% pour éviter les faux positifs)
             probabilites = xgb_model.predict_proba(X_scaled)[:, 1]
             predictions = (probabilites > 0.99).astype(int)
             df_new['Alerte_Fraude'] = predictions
@@ -48,19 +46,15 @@ if uploaded_file is not None:
                 st.warning(f"⚠️ {nb_fraudes} fraudes détectées !")
                 st.dataframe(df_new[df_new['Alerte_Fraude'] == 1])
                 
-                # --- EXPLAINABLE AI (SHAP) ---
                 st.subheader("🧠 Explainable AI : Pourquoi cette alerte ?")
-                st.markdown("Analyse détaillée de la première fraude détectée (pour les investigateurs) :")
+                st.markdown("Analyse détaillée de la première fraude détectée :")
                 
-                # Récupérer l'index de la première fraude
                 idx_fraude = df_new[df_new['Alerte_Fraude'] == 1].index[0]
                 ligne_fraude = X_scaled.iloc[[idx_fraude]]
                 
-                # Calculer les valeurs SHAP
                 explainer = shap.TreeExplainer(xgb_model)
                 shap_values = explainer.shap_values(ligne_fraude)
                 
-                # Créer le graphique
                 fig, ax = plt.subplots(figsize=(10, 5))
                 shap.waterfall_plot(shap.Explanation(values=shap_values[0], 
                                                      base_values=explainer.expected_value, 
@@ -68,20 +62,22 @@ if uploaded_file is not None:
                                                      feature_names=ligne_fraude.columns), show=False)
                 
                 st.pyplot(fig)
-                                st.markdown("""
-                                              **💡 Comment lire ce graphique (Waterfall SHAP) ?**
-                                              - **$E[f(x)]$ (en bas)** : Le risque de base avant analyse.
-                                              - **$f(x)$ (en haut)** : Le score de risque final calculé pour cette transaction.
-                                              - 🔴 **Barres Rouges** : Les variables qui **augmentent** la suspicion de fraude (ex: montant inhabituel, lieu atypique). Plus la barre est longue, plus la variable a alerté l'IA.
-                                              - 🔵 **Barres Bleues** : Les variables qui **rassurent** l'IA et diminuent le score de risque.
                 
-                                               *En entreprise, ce graphique permet aux investigateurs de comprendre en un coup d'œil pourquoi la machine a bloqué la carte, évitant ainsi le problème de la "boîte noire".*
-                                            """)
+                st.info("""
+**💡 Comment lire ce graphique (Waterfall SHAP) ?**
+- **$E[f(x)]$ (en bas)** : Le risque de base moyen.
+- **$f(x)$ (en haut)** : Le score de risque final de cette transaction.
+- 🔴 **Barres Rouges** : Les variables qui ont poussé l'IA à déclencher l'alerte fraude.
+- 🔵 **Barres Bleues** : Les variables qui rassuraient l'IA.
 
+*En entreprise, l'Explainable AI est une obligation légale (RGPD) qui permet aux investigateurs de comprendre la décision de la machine.*
+""")
                 
             else:
                 st.success("✅ Aucune fraude détectée sur ces transactions.")
 else:
-    st.info("👈 Uploadez le fichier sample_transactions.csv pour démarrer.")
+    st.info("👈 Uploadez un fichier CSV pour démarrer.")
+
+
 
 
