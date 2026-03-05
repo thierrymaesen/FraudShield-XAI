@@ -10,16 +10,20 @@
 
 ## 📖 Vue d'ensemble du Projet
 
-La fraude à la carte bancaire coûte des milliards d'euros chaque année à l'industrie financière. L'enjeu n'est pas seulement financier, mais concerne aussi la confiance des clients. 
-**FraudShield AI** est une solution complète de bout en bout (End-to-End) qui utilise le Machine Learning pour analyser les transactions financières et détecter les anomalies avec une haute précision, tout en minimisant les "faux positifs" qui bloquent inutilement les cartes de clients légitimes.
+La fraude à la carte bancaire coûte des milliards d'euros chaque année à l'industrie financière. L'enjeu n'est pas seulement financier,
+mais concerne aussi la confiance des clients. 
+**FraudShield AI** est une solution complète de bout en bout (End-to-End) qui utilise le Machine Learning pour analyser les transactions financières
+et détecter les anomalies avec une haute précision, tout en minimisant les "faux positifs" qui bloquent inutilement les cartes de clients légitimes.
 
 ## 🎯 Enjeux Business et Valeur Ajoutée
 
 Dans le domaine bancaire, la détection de fraude fait face à un défi majeur : le déséquilibre extrême des données (environ 0,17% de fraudes pour 99,83% de transactions légitimes).
 Ce projet apporte des solutions concrètes à ces problématiques métiers :
 - **Réduction des pertes financières :** Identification proactive des transactions frauduleuses avant la compensation.
-- **Optimisation de l'expérience client :** Ajustement fin du seuil de probabilité (Threshold à 99%) pour drastiquement réduire les faux positifs (blocages de cartes injustifiés).
-- **Aide à la décision (Explainable AI) :** Intégration de graphiques SHAP pour expliquer visuellement aux investigateurs *pourquoi* l'IA a déclenché une alerte (conformité RGPD sur le "Droit à l'explication").
+- **Optimisation de l'expérience client :** Ajustement fin du seuil de probabilité (Threshold à 99%) pour drastiquement réduire
+  les faux positifs (blocages de cartes injustifiés).
+- **Aide à la décision (Explainable AI) :** Intégration de graphiques SHAP pour expliquer visuellement aux investigateurs *pourquoi* l'IA a déclenché
+  une alerte (conformité RGPD sur le "Droit à l'explication").
 
 ## 🧠 L'Approche Technique & Architecture
 
@@ -40,7 +44,8 @@ L'architecture du projet est divisée en trois piliers principaux :
 
 ## 📊 Format des Données (Input)
 
-Pour des raisons de confidentialité bancaire, le modèle a été entraîné sur des données européennes dont la majorité des variables ont été transformées par Analyse en Composantes Principales (PCA). 
+Pour des raisons de confidentialité bancaire, le modèle a été entraîné sur des données européennes dont la majorité des variables
+ont été transformées par Analyse en Composantes Principales (PCA). 
 
 Pour que l'application fonctionne, le fichier CSV uploadé doit respecter **strictement** cette structure (30 ou 31 colonnes) :
 
@@ -69,6 +74,7 @@ Pour que l'application fonctionne, le fichier CSV uploadé doit respecter **stri
  ┣ 📜 requirements.txt            # Dépendances Python
  ┣ 📜 .gitignore                  # Fichiers ignorés par Git
  ┗ 📜 README.md                   # Documentation du projet
+
 🚀 Comment exécuter le projet localement ?
 Si vous souhaitez faire tourner cette application sur votre propre machine :
 
@@ -90,17 +96,21 @@ pip install -r requirements.txt
 
 bash
 streamlit run src/app.py
+
 📈 Améliorations futures (Roadmap)
- Remplacer la technique SMOTE par le paramètre scale_pos_weight natif de XGBoost pour améliorer l'apprentissage sur le dataset original.
+ Remplacer la technique SMOTE par le paramètre scale_pos_weight natif de XGBoost pour améliorer l'apprentissage
+ sur le dataset original.
 
  Connecter l'application à une base de données SQL pour historiser les prédictions.
 
 ⚖️ Licences et Remerciements
 Code Source
-Le code de cette application est distribué sous la Licence MIT. Vous êtes libre de l'utiliser, de le modifier et de le distribuer sous réserve d'inclure la notification de copyright originale.
+Le code de cette application est distribué sous la Licence MIT. Vous êtes libre de l'utiliser, de le modifier et de le distribuer
+sous réserve d'inclure la notification de copyright originale.
 
 Jeu de Données (Dataset)
-Le modèle d'intelligence artificielle a été entraîné en utilisant le jeu de données public "Credit Card Fraud Detection" mis à disposition par le Machine Learning Group (MLG) de l'Université Libre de Bruxelles (ULB).
+Le modèle d'intelligence artificielle a été entraîné en utilisant le jeu de données public "Credit Card Fraud Detection"
+mis à disposition par le Machine Learning Group (MLG) de l'Université Libre de Bruxelles (ULB).
 
 Source : Kaggle - Credit Card Fraud Detection
 
