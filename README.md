@@ -118,4 +118,18 @@ streamlit run src/app.py
 
  Connecter l'application à une base de données SQL pour historiser les prédictions.
 
-Projet réalisé par Thierry Maesen.
+## ⚖️ Licences et Remerciements
+
+**Code Source**  
+Le code de cette application est distribué sous la **Licence MIT**. Vous êtes libre de l'utiliser, de le modifier et de le distribuer sous réserve d'inclure la notification de copyright originale.
+
+**Jeu de Données (Dataset)**  
+Le modèle d'intelligence artificielle a été entraîné en utilisant le jeu de données public "Credit Card Fraud Detection" mis à disposition par le *Machine Learning Group (MLG) de l'Université Libre de Bruxelles (ULB)*.  
+- **Source :**  [Kaggle - Credit Card Fraud Detection](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
+- **Licence des données :** Open Data / CC0 Public Domain.
+
+---
+Projet réalisé par  [Thierry Maesen](https://github.com/thierrymaesen).
+
+
+
